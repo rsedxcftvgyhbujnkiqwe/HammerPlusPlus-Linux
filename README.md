@@ -71,7 +71,7 @@ Run the following
 ```
 WINE_PREFIX='/home/user/Documents/Proton/env/Proton 7.0/pfx/' winecfg
 ```
-If you get an error, check to make sure that the wine process is stopped with `ps aux | grep "wine"`. You can run a kill -3 <id> on all wine processes if they are being stubborn.
+If you get an error, check to make sure that the wine process is stopped with `ps aux | grep "wine"`. You can run a kill -9 <id> on all wine processes if they are being stubborn.
 - Symlink your TF2 directory to ~
   
 Run the following
