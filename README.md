@@ -3,7 +3,7 @@ Tutorial on getting [HammerPlusPlus](https://ficool2.github.io/HammerPlusPlus-We
 
 Table of contents:
 
-[Step 1: Requirements](##step-1-requirements)
+[Step 1: Requirements](#step-1-requirements)
 
 [Step 2: Proton Setup](#step-2-proton-setup)
 
@@ -19,8 +19,9 @@ Table of contents:
 
 ### Caveats
 - This has only been tested on an arch based distro, because that's what I use. I don't know how well it works anywhere else.
+- This has only been tested on Team Fortress 2. I don't make maps for any other game and have not tested it there. I'm sure most of the steps still work but if not then please try to figure it out on your own, my only concern is TF2.
 - You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus_gameconfig.txt file situated in bin/hammerplusplus, and other such files for other configuration options.
-- As of writing this I have not tested compiling. I may write an additional guide on getting Compilepal working, but if it doesn't work then I suspect it will just require you to manually run the build steps with wine. Progress so far is that compilepal won't even launch with proton, it launches with wine but crashes when you press compile.
+- You will not be able to use compilepal and will have to go through the map compilation process manually. If you get compilepal working on linux, please let me know.
 
 ## Step 1: Requirements
 You will obviously need steam and proton. In my case I have proton 7.0.3 and experimental installed. This guide is not intended to handhold you through the process of installing proton, it is assumed that since you are using linux you at least know how to use a search engine to get it installed.
@@ -72,7 +73,7 @@ Run the following
 WINE_PREFIX='/home/user/Documents/Proton/env/Proton 7.0/pfx/' winecfg
 ```
 If you get an error, check to make sure that the wine process is stopped with `ps aux | grep "wine"`. You can run a kill -9 <id> on all wine processes if they are being stubborn.
-- Symlink your TF2 directory to ~
+- Symlink your TF2 directory to home
   
 Run the following
 ```
@@ -96,8 +97,46 @@ In this file you can also edit certain configs, such as DefaultSolidEntity (when
 ### hammerplusplus_settings.ini
 This ini file, also situated in bin/hammerplusplus, contains a few groups of settings that are locked in the Tools->Options menu. Therefore you can edit this file in order to change them. There are far too many settings for me to cover in this file, so I'd just recommend opening it up and skimming through it and seeing if any settings catch your eye.
 ## Step 5: Compiling maps
-To be done (maybe)
+I was unable to get compilepal to work. Therefore, we will use the traditional tools.
+### Compiling
+Compiling works just fine since hammer is being run in a proton environment. You can just compile maps the good old fashioned way with your F9 menu, and you can even use the custom build programs of your choosing (they can be set in the [config file](#hammerplusplus_gameconfigtxt) or by manually editing the run steps).
+  
+The following steps all assume you are in the expert window of the run map menu
+### Packing
+You'll have to use VIDE. From my testing it works totally fine with wine 7.0. You can simply run `wine VIDE.exe` inside your vide directory to run it. I was able to use the pakfile lump editor to pack my map and scan the game files.
+### Cubemaps and Repacking
+You can add a custom step to run cubemaps, and to target bspzip onto your bsp for repacking.
 
+For cubemaps, in a new step set the following. You may change your cubemap settings to what you prefer, I just use these ones. Inspiration for this command was borrowed from [Compilepal](https://github.com/ruarai/CompilePal/blob/master/CompilePalX/Compilers/CubemapProcess.cs)
+  
+Command
+```
+$game_exe
+```
+Parameters
+```
+-windowed -novid -sound +mat_specular 0 0 +map $file -buildcubemaps
+```
+ 
+For repacking, in a new run step click 'Cmds' on the right and then click executable. Navigate all the way to bspzip.exe, which should be situated in your TF2/bin/ directory.
+  
+Command should look similar to the following (note that my jump from user->TF2 is because I symlinked it in [step 4](#accessing-files))
+  
+Command:
+```
+D:\user\TF2\bin\bspzip.exe
+```
+Parameters:
+```
+-repack -compress $path\$file.bsp
+```
+Ensure the repack happens BEFORE the Copy File step, and AFTER all other steps, or else only the mapsrc bsp will be repacked. The end of your compile process should be in this order:
+  - bsp
+  - vvis
+  - vrad
+  - cubemaps
+  - repack
+  - copy file
 # Errors
 I only ran into a few, and should people make issues with other bugs I may address them here if they are noteworthy.
 ### proton exited with: code: 53
