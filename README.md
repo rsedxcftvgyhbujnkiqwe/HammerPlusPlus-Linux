@@ -19,7 +19,7 @@ My weapon of choice for this exercise is [proton-caller](https://github.com/cave
 Install proton-caller through whichever way you prefer (AUR for arch users).
 You will need to create the ~/.config/proton.conf file in order for proton-caller to function properly. I used the example settings from the repo page. 
 
-**The most important thing in this step is that you note where your 'data' directory is. In my case, it's stored in /home/user/Documents/Proton/env/. You do not have to use this, but I'm going to be using this path for the rest of the tutorial so substitute yours instead if you use an alternate path.**
+**The most important thing in this step is that you note where your 'data' directory is. In my case, it's stored in /home/user/Documents/Proton/env/. You do not have to use this directory, but I'm going to be using this path for the rest of the tutorial so substitute yours instead if you use an alternate path.**
 
 ## Step 2: Proton setup
 Run the following to create the directories we need:
