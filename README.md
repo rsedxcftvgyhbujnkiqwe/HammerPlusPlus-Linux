@@ -56,11 +56,11 @@ If you see files from the TF2 directory (bin/tf/hl2) then it worked and you can 
 ## Step 3: Running hammer
 At this point hammer should be ready to go. If you've set up proton-caller and proton correctly, and have made sure the windows hammer files are your TF2/bin/ folder, you can run the following command to start hammerplusplus. Note that this assumes your pwd is bin/, if you aren't within it or are making a bash alias, simply append the full file path to the exe name.
 ```
-proton-caller -r hammerplusplus.exe
+proton-call -r hammerplusplus.exe
 ```
 I would recommend something to the effect of the following for an alias, appended to your ~/.bashrc file.
 ```
-alias starthammer='proton-caller -r "/home/user/.local/share/Steam/steamapps/common/Team Fortress 2/bin/hammerplusplus.exe"'
+alias starthammer='proton-call -r "/home/user/.local/share/Steam/steamapps/common/Team Fortress 2/bin/hammerplusplus.exe"'
 ```
 ## Step 4: Configuring hammer
 Once hammer is running, you're ready to start configuring it. 
