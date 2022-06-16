@@ -20,7 +20,6 @@ Table of contents:
 ### Caveats
 - This has only been tested on an arch based distro, because that's what I use. I don't know how well it works anywhere else.
 - You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus_gameconfig.txt file situated in bin/hammerplusplus, and other such files for other configuration options.
-- As of writing this I have not fully gotten FGDs to function, so custom entity models and sprites do not work (such as from Spud's FGD), although other fgd aspect seem to work just fine.
 - As of writing this I have not tested compiling. I may write an additional guide on getting Compilepal working, but if it doesn't work then I suspect it will just require you to manually run the build steps with wine. Progress so far is that compilepal won't even launch with proton, it launches with wine but crashes when you press compile.
 
 ## Step 1: Requirements
@@ -64,8 +63,6 @@ alias starthammer='proton-call -r "/home/user/.local/share/Steam/steamapps/commo
 ```
 ## Step 4: Configuring hammer
 Once hammer is running, you're ready to start configuring it. 
-### gameconfig.txt
-To be done
 ### accessing files
 If you are in h++ and try to open files, you may notice you can't see any dotfiles, which means if steam was installed in the default location you can't open your mapsrc folder. You have two ways around this. I would recommend enabling dotfiles first, because hammer tends to remember your directory after the first time, which makes the symlink a bit overkill. If you need to enter the directory multiple times, you are probably better off with the symlink.
 - Edit the winecfg for proton to allow dotfiles
@@ -82,8 +79,25 @@ Run the following
 ln -s '/home/user/.share/local/Steam/steamapps/common/Team Fortress 2' '/home/user/TF2'
 ```
 This will create a TF2 folder in your home directory, so when you enter the file picker you can simply go to /home/user/TF2 and access your files.
+### FGDs 
+The installation process for FGDs is the same as on windows. If you want to install ABS, run the installer exe using proton-call so that it will install it to your TF2 directory. If you are exceptionally stubborn and didn't want to symlink your TF2 folder to proton back in step 2, at this stage you will suffer the consequences.
+
+### hammerplusplus_gameconfig.txt
+As for actually loading the fgds, this can be done in the hammerplusplus_gameconfig.txt file, located in bin/hammerplusplus/. The following are what I have in my file, loading both the fgd for propper and spud's fgd. If you wish to use any other fgds, you can add them here. Spud does not require manaully adding the ABS fgd.
+```
+"Hammer"
+{
+"GameData0"		"C:\Program Files (x86)\Steam\steamapps\common\Team Fortress 2\bin\propper.fgd"
+"GameData1"		"C:\Program Files (x86)\Steam\steamapps\common\Team Fortress 2\bin\tf2_spud.fgd"
+...
+}
+```
+In this file you can also edit certain configs, such as DefaultSolidEntity (when you change a brush to entity) and DefaultPointEntity (default point entity when created with the entity tool).
+### hammerplusplus_settings.ini
+This ini file, also situated in bin/hammerplusplus, contains a few groups of settings that are locked in the Tools->Options menu. Therefore you can edit this file in order to change them. There are far too many settings for me to cover in this file, so I'd just recommend opening it up and skimming through it and seeing if any settings catch your eye.
 ## Step 5: Compiling maps
 To be done (maybe)
+
 # Errors
 I only ran into a few, and should people make issues with other bugs I may address them here if they are noteworthy.
 ### proton exited with: code: 53
