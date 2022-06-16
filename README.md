@@ -66,7 +66,8 @@ Run the following
 ln -s '/home/user/.share/local/Steam/steamapps/common/Team Fortress 2' '/home/user/TF2'
 ```
 This will create a TF2 folder in your home directory, so when you enter the file picker you can simply go to /home/user/TF2 and access your files.
-
+## Step 5: Compiling
+To be done (maybe)
 # Errors
 I only ran into a few, and should people make issues with other bugs I may address them here if they are noteworthy.
 ### proton exited with: code: 53
