@@ -4,7 +4,7 @@ Tutorial on getting [HammerPlusPlus](https://ficool2.github.io/HammerPlusPlus-We
 ### Caveats
 - This has only been tested on an arch based distro, because that's what I use. I don't know how well it works anywhere else.
 - You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus_gameconfig.txt file situated in bin/hammerplusplus, and other such files for other configuration options.
-- As of writing this I have not fully gotten FGDs to function, so custom entity models and sprites do not work (such as from Spud's FGD)
+- As of writing this I have not fully gotten FGDs to function, so custom entity models and sprites do not work (such as from Spud's FGD), although other fgd aspect seem to work just fine.
 - As of writing this I have not tested compiling. I may write an additional guide on getting Compilepal working, but if it doesn't work then I suspect it will just require you to manually run the build steps with wine.
 
 ## Step 1: Requirements
