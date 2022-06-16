@@ -1,6 +1,22 @@
 # HammerPlusPlus-Linux
 Tutorial on getting [HammerPlusPlus](https://ficool2.github.io/HammerPlusPlus-Website/index.html) by ficool2 working on linux.
 
+Table of contents:
+
+[Step 1: Requirements](#Step 1: Requirements)
+
+[Step 2: Proton Setup](#Step 2: Proton Setup)
+
+[Step 3: Running hammer](#Step 3: Running hammer)
+
+[Step 4: Configuring hammer](#Step 4: Configuring hammer)
+
+[Step 5:Compiling maps](#Step 5:Compiling maps)
+
+[Errors](#Errors)
+
+
+
 ### Caveats
 - This has only been tested on an arch based distro, because that's what I use. I don't know how well it works anywhere else.
 - You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus_gameconfig.txt file situated in bin/hammerplusplus, and other such files for other configuration options.
