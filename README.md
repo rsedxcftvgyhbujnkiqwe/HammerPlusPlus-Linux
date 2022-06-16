@@ -3,15 +3,15 @@ Tutorial on getting [HammerPlusPlus](https://ficool2.github.io/HammerPlusPlus-We
 
 Table of contents:
 
-[Step 1: Requirements](#Step 1: Requirements)
+[Step 1: Requirements](##step-1-requirements)
 
-[Step 2: Proton Setup](#Step 2: Proton Setup)
+[Step 2: Proton Setup](#step-2-proton-setup)
 
-[Step 3: Running hammer](#Step 3: Running hammer)
+[Step 3: Running hammer](#step-3-running-hammer)
 
-[Step 4: Configuring hammer](#Step 4: Configuring hammer)
+[Step 4: Configuring hammer](#step-4-configuring-hammer)
 
-[Step 5:Compiling maps](#Step 5:Compiling maps)
+[Step 5:Compiling maps](#step-5-compiling-maps)
 
 [Errors](#Errors)
 
