@@ -104,6 +104,8 @@ Compiling works just fine since hammer is being run in a proton environment. You
 The following steps all assume you are in the expert window of the run map menu
 ### Packing
 You'll have to use VIDE. From my testing it works totally fine with wine 7.0. You can simply run `wine VIDE.exe` inside your vide directory to run it. I was able to use the pakfile lump editor to pack my map and scan the game files.
+  
+**Tentatively looking at a python script to do the packing thanks to Squishy**
 ### Cubemaps and Repacking
 You can add a custom step to run cubemaps, and to target bspzip onto your bsp for repacking.
 
