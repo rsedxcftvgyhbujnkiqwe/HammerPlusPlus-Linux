@@ -5,7 +5,7 @@ Tutorial on getting [HammerPlusPlus](https://ficool2.github.io/HammerPlusPlus-We
 - This has only been tested on an arch based distro, because that's what I use. I don't know how well it works anywhere else.
 - You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus_gameconfig.txt file situated in bin/hammerplusplus, and other such files for other configuration options.
 - As of writing this I have not fully gotten FGDs to function, so custom entity models and sprites do not work (such as from Spud's FGD), although other fgd aspect seem to work just fine.
-- As of writing this I have not tested compiling. I may write an additional guide on getting Compilepal working, but if it doesn't work then I suspect it will just require you to manually run the build steps with wine.
+- As of writing this I have not tested compiling. I may write an additional guide on getting Compilepal working, but if it doesn't work then I suspect it will just require you to manually run the build steps with wine. Progress so far is that compielpal won't even launch with proton, it launches with wine but crashes when you press compile.
 
 ## Step 1: Requirements
 You will obviously need steam and proton. In my case I have proton 7.0.3 and experimental installed. This guide is not intended to handhold you through the process of installing proton, it is assumed that since you are using linux you at least know how to use a search engine to get it installed.
