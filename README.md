@@ -11,7 +11,7 @@ Table of contents:
 
 [Step 4: Configuring hammer](#step-4-configuring-hammer)
 
-[Step 5:Compiling maps](#step-5-compiling-maps)
+[Step 5: Compiling maps](#step-5-compiling-maps)
 
 [Errors](#Errors)
 
