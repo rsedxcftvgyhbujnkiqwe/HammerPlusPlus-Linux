@@ -149,4 +149,4 @@ You may need to run hammer.exe once to generate files for the first time, you ca
 proton-call -r hammer.exe
 ```
 ### My error isn't listed!
-Submit an issue detailing your problem and how to reproduce the bug and I'll see if I haven't already come across it yet.
+Submit an issue detailing your problem and how to reproduce the bug and I'll see if I haven't already come across it yet. However if you followed the steps properly, there should be no issues. If you are experiencing problems, try redoing steps or starting over before posting here.
