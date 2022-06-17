@@ -20,7 +20,7 @@ Table of contents:
 ### Caveats
 - This has only been tested on an arch based distro, because that's what I use. I don't know how well it works anywhere else.
 - This has only been tested on Team Fortress 2. I don't make maps for any other game and have not tested it there. I'm sure most of the steps still work but if not then please try to figure it out on your own, my only concern is TF2.
-- You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus_gameconfig.txt file situated in bin/hammerplusplus, and other such files for other configuration options.
+- You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus [config files](#hammerplusplus_gameconfigtxt).
 - You will not be able to use compilepal and will have to go through the map compilation process manually. If you get compilepal working on linux, please let me know.
 
 ## Step 1: Requirements
