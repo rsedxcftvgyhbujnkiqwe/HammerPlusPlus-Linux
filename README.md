@@ -95,7 +95,7 @@ As for actually loading the fgds, this can be done in the hammerplusplus_gamecon
 ```
 In this file you can also edit certain configs, such as DefaultSolidEntity (when you change a brush to entity) and DefaultPointEntity (default point entity when created with the entity tool).
 ### hammerplusplus_settings.ini
-This ini file, also situated in bin/hammerplusplus, contains a few groups of settings that are locked in the Tools->Options menu. Therefore you can edit this file in order to change them. There are far too many settings for me to cover in this file, so I'd just recommend opening it up and skimming through it and seeing if any settings catch your eye.
+This ini file, also situated in bin/hammerplusplus, contains a few groups of settings that are locked in the Tools->Options menu. Therefore you can edit this file in order to change them. There are far too many settings for me to cover in this section, so I'd just recommend opening it up and skimming through it and seeing if any settings catch your eye.
 ## Step 5: Compiling maps
 I was unable to get compilepal to work. Therefore, we will use the traditional tools.
 ### Compiling
