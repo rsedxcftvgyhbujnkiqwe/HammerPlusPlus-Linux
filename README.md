@@ -109,7 +109,7 @@ You'll have to use VIDE. From my testing it works totally fine with wine 7.0. Yo
 ### Cubemaps and Repacking
 You can add a custom step to run cubemaps, and to target bspzip onto your bsp for repacking.
 
-For cubemaps, in a new step set the following. You may change your cubemap settings to what you prefer, I just use these ones. Inspiration for this command was borrowed from [Compilepal](https://github.com/ruarai/CompilePal/blob/master/CompilePalX/Compilers/CubemapProcess.cs)
+For cubemaps, in a new step set the following. You may change your cubemap settings to what you prefer, I just use these ones. Inspiration for this command was borrowed from [Compilepal](https://github.com/ruarai/CompilePal/blob/master/CompilePalX/Compilers/CubemapProcess.cs). **The game has to be closed beforehand to run the cubemap step. Make sure the game is closed before running or run a custom step with a script to kill the game automatically.**
   
 Command
 ```
