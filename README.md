@@ -107,38 +107,7 @@ You'll have to use VIDE. From my testing it works totally fine with wine 7.0. Yo
   
 **Tentatively looking at a python script to do the packing thanks to Squishy**
 ### Cubemaps and Repacking
-You can add a custom step to run cubemaps, and to target bspzip onto your bsp for repacking.
-
-For cubemaps, in a new step set the following. You may change your cubemap settings to what you prefer, I just use these ones. Inspiration for this command was borrowed from [Compilepal](https://github.com/ruarai/CompilePal/blob/master/CompilePalX/Compilers/CubemapProcess.cs). **The game has to be closed beforehand to run the cubemap step. Make sure the game is closed before running or run a custom step with a script to kill the game automatically.**
-  
-Command
-```
-$game_exe
-```
-Parameters
-```
--windowed -novid -sound +mat_specular 0 0 +map $file -buildcubemaps
-```
- 
-For repacking, in a new run step click 'Cmds' on the right and then click executable. Navigate all the way to bspzip.exe, which should be situated in your TF2/bin/ directory.
-  
-Command should look similar to the following (note that my jump from user->TF2 is because I symlinked it in [step 4](#accessing-files))
-  
-Command:
-```
-D:\user\TF2\bin\bspzip.exe
-```
-Parameters:
-```
--repack -compress $path\$file.bsp
-```
-Ensure the repack happens BEFORE the Copy File step, and AFTER all other steps, or else only the mapsrc bsp will be repacked. The end of your compile process should be in this order:
-  - bsp
-  - vvis
-  - vrad
-  - cubemaps
-  - repack
-  - copy file
+Work in progress
 # Errors
 I only ran into a few, and should people make issues with other bugs I may address them here if they are noteworthy.
 ### proton exited with: code: 53
