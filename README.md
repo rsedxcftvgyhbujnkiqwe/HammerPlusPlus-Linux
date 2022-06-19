@@ -189,7 +189,7 @@ D:\user\TF2\bin\bspzip.exe
 ```
 Parameters:
 ```
--game $gamedir -repack -compress $path\$file.bsp
+-game $gamedir -repack -compress $bspdir\$file.bsp
 ```
 The repacking step is run at the very end, so after this you can go ahead and do a Copy File step or just leave it as is. This is where the final location of the map will be at the end, though if you followed all the steps above by default it will be in tf/maps.
 # Errors
