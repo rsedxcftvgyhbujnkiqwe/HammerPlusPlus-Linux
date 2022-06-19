@@ -23,6 +23,9 @@ Table of contents:
 - You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus [config files](#hammerplusplus_gameconfigtxt).
 - You will not be able to use compilepal and will have to go through the map compilation process manually. If you get compilepal working on linux, please let me know.
 
+## Introductory notes
+- This tutorial utilizes a lot of symlinks. Make sure you read through the whole tutorial, because if you skip later on and don't understand where I get a directory from, it's probably because I used a symlink.
+
 ## Step 1: Requirements
 You will obviously need steam and proton. In my case I have proton 7.0.3 and experimental installed. This guide is not intended to handhold you through the process of installing proton, it is assumed that since you are using linux you at least know how to use a search engine to get it installed.
 ### Hammer
@@ -97,17 +100,66 @@ In this file you can also edit certain configs, such as DefaultSolidEntity (when
 ### hammerplusplus_settings.ini
 This ini file, also situated in bin/hammerplusplus, contains a few groups of settings that are locked in the Tools->Options menu. Therefore you can edit this file in order to change them. There are far too many settings for me to cover in this section, so I'd just recommend opening it up and skimming through it and seeing if any settings catch your eye.
 ## Step 5: Compiling maps
-I was unable to get compilepal to work. Therefore, we will use the traditional tools.
-### Compiling
-Compiling works just fine since hammer is being run in a proton environment. You can just compile maps the good old fashioned way with your F9 menu, and you can even use the custom build programs of your choosing (they can be set in the [config file](#hammerplusplus_gameconfigtxt) or by manually editing the run steps).
+I was unable to get compilepal to work. Therefore, we will use the traditional tools. If you intend to have hammer automatically do these steps, make sure you follow the order at the end of this section, or it will not work.
   
 The following steps all assume you are in the expert window of the run map menu
+### Compiling
+Compiling works just fine since hammer is being run in a proton environment. You can just compile maps the good old fashioned way with your F9 menu, and you can even use the custom build programs of your choosing (they can be set in the [config file](#hammerplusplus_gameconfigtxt) or by manually editing the run steps).
 ### Packing
 You'll have to use VIDE. From my testing it works totally fine with wine 7.0. You can simply run `wine VIDE.exe` inside your vide directory to run it. I was able to use the pakfile lump editor to pack my map and scan the game files.
   
 **Tentatively looking at a python script to do the packing thanks to Squishy**
-### Cubemaps and Repacking
-Work in progress
+### Cubemaps
+We want to repack AFTER cubemaps. However at this point, the bsp is still in the mapsrc folder. So we'll need to move the step that copies the map from the mapsrc folder to the tf/maps folder up, so that it happens before the cubemap step. If you still want the finished map to go into your mapsrc folder, you can add an additional copy file step that has the paths in reverse order. Note that if you end up doing this, the file in mapsrc will not be the final version of the map unless you do an additional copy step to put it back (though that should be done post-repack).
+
+Running cubemaps is hacky. In order to run the game, which on linux is a shell script, we will have to run bash within wine which is annoying. Therefore we will make a batch script, that calls a bash script, that calls the game. **This step is incomplete as of now, as the run map does not wait for the game to finish before continuing. I will figure out a workaround**
+  
+Where you put these scripts is your choice, I choose to put them in my common/Team Fortress 2/ directory, which makes everything easier later for the paths.
+#### rungame.bat
+```
+start /unix /home/user/TF2/test.sh %1%
+```
+#### rungame.sh
+The following file is an example of cubemap settings you can use. I borrowed these from the [compilepal settings](https://github.com/ruarai/CompilePal/blob/master/CompilePalX/Compilers/CubemapProcess.cs), you can fine tune to your needs. You NEED to have -game /path/to/tf, +mat_specular 0, +map $1, and -buildcubemaps. Everything else is your decision.
+  
+The reason this is done this way is because TF2 must be run through the steam runtime, so we call the runtime first and then pass it the game's hl2.sh. Since I symlinked my TF2 directory and not my steam directory, in this case I have to manually navigate to it for the run.sh path, though you can feel free to symlink it if you choose. This path is never used again however so it's not necessary.
+```
+#! /usr/bin/bash
+. /home/user/.local/share/Steam/ubuntu12_32/steam-runtime/run.sh /home/user/TF2/hl2.sh -game /home/user/TF2/tf -windowed -novid -sound +mat_specular 0 0 +map $1 -buildcubemaps -noborder -x 4000 -y 2000
+```
+#### Run step
+You will need two steps for cubemaps. As alluded to at the beginning, you'll need a step to copy the file from mapsrc to tf/maps. You can use the default step provided in the run map menu, but if you want an example:
+
+Command:
+```
+Copy File
+```
+Parameters:
+```
+$path\$file.bsp $bspdir\$file.bsp
+```
+Next will be the actual cubemap run step. If you need to determine what your drive letter and path is, click 'Cmds' on the right and manually navigate to the batch file. The $file parameter is passed to the batch script as %1%, which is then passed to the shell script as $1.
+
+Command:
+```
+D:\user\TF2\rungame.bat
+```
+Parameters:
+```
+$file
+```
+### Repacking
+Repacking is as simple as running the bspzip.exe onto the map. If you ran the cubemap step, the map will be in the tf/maps folder ($bspdir\$file.bsp). If you didn't run the cubemap step, you'll have to target the mapsrc folder ($path\$file.bsp). In my example I am assuming you ran the cubemap step and therefore the map is in tf/maps. I am also assuming the bspzip is in the default directory, change to suit your needs.
+  
+Command:
+```
+D:\user\TF2\bin\bspzip.exe
+```
+Parameters:
+```
+-game $gamedir -repack -compress $path\$file.bsp
+```
+The repacking step is run at the very end, so after this you can go ahead and do a Copy File step or just leave it as is. This is where the final location of the map will be at the end, though if you followed all the steps above by default it will be in tf/maps.
 # Errors
 I only ran into a few, and should people make issues with other bugs I may address them here if they are noteworthy.
 ### proton exited with: code: 53
