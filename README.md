@@ -103,22 +103,52 @@ This ini file, also situated in bin/hammerplusplus, contains a few groups of set
 ## Step 5: Compiling maps
 I was unable to get compilepal to work. Therefore, we will use the traditional tools. If you intend to have hammer automatically do these steps, make sure you follow the order at the end of this section, or it will not work.
   
-**The following steps all assume you are in the expert window of the run map menu. Access this by pressing F9 and clicking "Expert" at the botom. You can either edit the default or many a new one, I edit the default config for my example.**
+**The following steps all assume you are in the expert window of the run map menu. Access this by pressing F9 and clicking "Expert" at the botom. You can either edit the default or make a new one, I edit the default config for my example.**
 ### Compiling
 Compiling works just fine since hammer is being run in a proton environment. You can just compile maps the good old fashioned way with your F9 menu, and you can even use the custom build programs of your choosing (they can be set in the [config file](#hammerplusplus_gameconfigtxt) or by manually editing the run steps).
 ### Packing
-You'll have to use VIDE. From my testing it works totally fine with wine 7.0. You can simply run `wine VIDE.exe` inside your vide directory to run it. I was able to use the pakfile lump editor to pack my map and scan the game files.
+To automate packing, we will use bppu by Squishy. It's a python script that automates the packing of the file. You will need to install python in order to run this, which is something I am not including in this tutorial because it can easily be found on search engines.
   
-**Tentatively looking at a python script to do the packing thanks to Squishy**
-### Cubemaps
-We want to repack AFTER cubemaps. However at this point, the bsp is still in the mapsrc folder. So we'll need to move the step that copies the map from the mapsrc folder to the tf/maps folder up, so that it happens before the cubemap step. If you still want the finished map to go into your mapsrc folder, you can add an additional copy file step that has the paths in reverse order. Note that if you end up doing this, the file in mapsrc will not be the final version of the map unless you do an additional copy step to put it back (though that should be done post-repack).
-
-Running cubemaps is hacky. In order to run the game, which on linux is a shell script, we will have to run bash within wine which is annoying. Therefore we will make a batch script, that calls a bash script, that calls the game. **This step is incomplete as of now, as the run map does not wait for the game to finish before continuing. I will figure out a workaround**
+At this point, the bsp is still in the mapsrc folder. So we'll need to move the step that copies the map from the mapsrc folder to the tf/maps folder up, so that it happens before the packing step. If you still want the finished map to go into your mapsrc folder, you can add an additional copy file step that has the paths in reverse order. Note that if you end up doing this, the file in mapsrc will not be the final version of the map unless you do an additional copy step to put it back (though that should be done post-repack). You may also choose to have multiple Copy File steps for convenience, just make sure you keep track of where the file is during any given step. 
   
-Where you put these scripts is your choice, I choose to put them in my common/Team Fortress 2/ directory, which makes everything easier later for the paths.
-#### rungame.bat
+This command is in most of the run steps, but if you want it for reference I will put it here.
+- $path -> mapsrc
+- $bspdir -> tf/maps
+  
+Command:
 ```
-start /unix /home/user/TF2/test.sh %1%
+Copy File
+```
+Parameters:
+```
+$path\$file.bsp $bspdir\$file.bsp
+```
+
+Anyways, let's get on to the packing. In order to run python, we will have to call it with bash within wine which is annoying. Therefore we will make a batch script, that calls a bash script, that calls python, that calls bppu. **This step is incomplete as of now, as the run steps do not wait for the packing to finish before continuing. I will figure out a workaround**
+  
+In my example I will be putting the script in my TF2 folder. You don't need to use this directory, I am using it once again for convenience. The file structure will look like the following:
+```
+common/Team Fortress 2/hammerscripts/bppu/bppu.py
+```
+
+Now we will create the two scripts that we have to use in order to invoke bppu. Where you put these scripts is your choice, I choose to put them in the common/Team Fortress 2/hammerscripts directory, which makes everything easier later for the paths,
+
+#### runbppu.bat  
+````
+start /unix /usr/bin/bash /home/mare/TF2/hammerscripts/runbppu.sh
+````
+#### runbppu.sh
+```
+#! /usr/bin/bash
+python bppu/bppu.py /maps/$1.bsp -parse -pack
+```
+### Cubemaps
+Running cubemaps is just as hacky as the python script. **This step is incomplete as of now, as the run map does not wait for the game to finish before continuing. I will figure out a workaround**
+  
+Where you put these scripts is your choice, I choose to put them in the common/Team Fortress 2/hammerscripts directory, which makes everything easier later for the paths.
+#### runcubemaps.bat
+```
+start /unix /home/user/TF2/hammerscripts/runcubemaps.sh %1%
 ```
 #### rungame.sh
 The following file is an example of cubemap settings you can use. I borrowed these from the [compilepal settings](https://github.com/ruarai/CompilePal/blob/master/CompilePalX/Compilers/CubemapProcess.cs), you can fine tune to your needs. You NEED to have -game /path/to/tf, +mat_specular 0, +map $1, and -buildcubemaps. Everything else is your decision.
@@ -130,20 +160,11 @@ The reason this is done this way is because TF2 must be run through the steam ru
 ```
 #### Run step
 You will need two steps for cubemaps. As alluded to at the beginning, you'll need a step to copy the file from mapsrc to tf/maps. You can use the default step provided in the run map menu, but if you want an example:
-
-Command:
-```
-Copy File
-```
-Parameters:
-```
-$path\$file.bsp $bspdir\$file.bsp
-```
 Next will be the actual cubemap run step. If you need to determine what your drive letter and path is, click 'Cmds' on the right and manually navigate to the batch file. The $file parameter is passed to the batch script as %1%, which is then passed to the shell script as $1.
 
 Command:
 ```
-D:\user\TF2\rungame.bat
+D:\user\TF2\hammerscripts\rungame.bat
 ```
 Parameters:
 ```
