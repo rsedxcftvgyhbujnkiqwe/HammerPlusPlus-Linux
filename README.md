@@ -107,7 +107,7 @@ I was unable to get compilepal to work. Therefore, we will use the traditional t
 ### Compiling
 Compiling works just fine since hammer is being run in a proton environment. You can just compile maps the good old fashioned way with your F9 menu, and you can even use the custom build programs of your choosing (they can be set in the [config file](#hammerplusplus_gameconfigtxt) or by manually editing the run steps).
 ### Packing
-To automate packing, we will use bppu by Squishy. It's a python script that automates the packing of the file. You will need to install python in order to run this, which is something I am not including in this tutorial because it can easily be found on search engines.
+To automate packing, we will use [bppu]() by Squishy. It's a python script that automates the packing of the file. You will need to install python in order to run this, which is something I am not including in this tutorial because it can easily be found on search engines.
   
 At this point, the bsp is still in the mapsrc folder. So we'll need to move the step that copies the map from the mapsrc folder to the tf/maps folder up, so that it happens before the packing step. Note that if you end up doing this, the file in mapsrc will not be the final version of the map unless you do an additional copy step to put it back (though that should be done post-repack at the very end). You may also choose to have multiple Copy File steps for convenience, just make sure you keep track of where the file is during any given step. 
 
