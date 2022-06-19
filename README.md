@@ -69,15 +69,17 @@ alias starthammer='proton-call -r "/home/user/.local/share/Steam/steamapps/commo
 Once hammer is running, you're ready to start configuring it. 
 ### accessing files
 If you are in h++ and try to open files, you may notice you can't see any dotfiles, which means if steam was installed in the default location you can't open your mapsrc folder. You have two ways around this. I would recommend enabling dotfiles first, because hammer tends to remember your directory after the first time, which makes the symlink a bit overkill. If you need to enter the directory multiple times, you are probably better off with the symlink.
-- Edit the winecfg for proton to allow dotfiles
-
+#### Edit the winecfg for proton to allow dotfiles
 Run the following 
 ```
-WINE_PREFIX='/home/user/Documents/Proton/env/Proton 7.0/pfx/' winecfg
+WINEPREFIX='/home/user/Documents/Proton/env/Proton 7.0/pfx/' winecfg
 ```
-If you get an error, check to make sure that the wine process is stopped with `ps aux | grep "wine"`. You can run a kill -9 <id> on all wine processes if they are being stubborn.
-- Symlink your TF2 directory to home
-  
+If you get an error, check to make sure that the wine process is stopped with 
+```
+ps aux | grep "wine"
+```
+You can run a kill -9 <id> on all wine processes if they are being stubborn.
+#### Symlink your TF2 directory to home
 Run the following
 ```
 ln -s '/home/user/.share/local/Steam/steamapps/common/Team Fortress 2' '/home/user/TF2'
@@ -93,7 +95,6 @@ As for actually loading the fgds, this can be done in the hammerplusplus_gamecon
 {
 "GameData0"		"C:\Program Files (x86)\Steam\steamapps\common\Team Fortress 2\bin\propper.fgd"
 "GameData1"		"C:\Program Files (x86)\Steam\steamapps\common\Team Fortress 2\bin\tf2_spud.fgd"
-...
 }
 ```
 In this file you can also edit certain configs, such as DefaultSolidEntity (when you change a brush to entity) and DefaultPointEntity (default point entity when created with the entity tool).
@@ -102,7 +103,7 @@ This ini file, also situated in bin/hammerplusplus, contains a few groups of set
 ## Step 5: Compiling maps
 I was unable to get compilepal to work. Therefore, we will use the traditional tools. If you intend to have hammer automatically do these steps, make sure you follow the order at the end of this section, or it will not work.
   
-The following steps all assume you are in the expert window of the run map menu
+**The following steps all assume you are in the expert window of the run map menu. Access this by pressing F9 and clicking "Expert" at the botom. You can either edit the default or many a new one, I edit the default config for my example.**
 ### Compiling
 Compiling works just fine since hammer is being run in a proton environment. You can just compile maps the good old fashioned way with your F9 menu, and you can even use the custom build programs of your choosing (they can be set in the [config file](#hammerplusplus_gameconfigtxt) or by manually editing the run steps).
 ### Packing
