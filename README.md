@@ -153,7 +153,7 @@ Parameters:
 $file
 ```
 ### Cubemaps
-Running cubemaps is just as hacky as the python script. **This step is incomplete as of now, as the run map does not wait for the game to finish before continuing. I will figure out a workaround**
+Running cubemaps is just as hacky as bppu. **If you have any map commands in your autoexec, you will need to remove them. They interfere with -cubemaps.** **This step is incomplete as of now, as the run map does not wait for the game to finish before continuing. I will figure out a workaround**
   
 Where you put these scripts is your choice, I choose to put them in the common/Team Fortress 2/hammerscripts directory, which makes everything easier later for the paths.
 #### runcubemaps.bat
