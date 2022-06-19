@@ -109,8 +109,8 @@ Compiling works just fine since hammer is being run in a proton environment. You
 ### Packing
 To automate packing, we will use bppu by Squishy. It's a python script that automates the packing of the file. You will need to install python in order to run this, which is something I am not including in this tutorial because it can easily be found on search engines.
   
-At this point, the bsp is still in the mapsrc folder. So we'll need to move the step that copies the map from the mapsrc folder to the tf/maps folder up, so that it happens before the packing step. If you still want the finished map to go into your mapsrc folder, you can add an additional copy file step that has the paths in reverse order. Note that if you end up doing this, the file in mapsrc will not be the final version of the map unless you do an additional copy step to put it back (though that should be done post-repack). You may also choose to have multiple Copy File steps for convenience, just make sure you keep track of where the file is during any given step. 
-  
+At this point, the bsp is still in the mapsrc folder. So we'll need to move the step that copies the map from the mapsrc folder to the tf/maps folder up, so that it happens before the packing step. Note that if you end up doing this, the file in mapsrc will not be the final version of the map unless you do an additional copy step to put it back (though that should be done post-repack at the very end). You may also choose to have multiple Copy File steps for convenience, just make sure you keep track of where the file is during any given step. 
+
 This command is in most of the run steps, but if you want it for reference I will put it here.
 - $path -> mapsrc
 - $bspdir -> tf/maps
