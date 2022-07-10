@@ -22,7 +22,7 @@ Table of contents:
 - This has only been tested on Team Fortress 2. I don't make maps for any other game and have not tested it there. I'm sure most of the steps still work but if not then please try to figure it out on your own, my only concern is TF2.
 - You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus [config files](#hammerplusplus_gameconfigtxt).
 - You will not be able to use compilepal and will have to go through the map compilation process manually. If you get compilepal working on linux, please let me know.
-
+- **The model browser doesn't work**
 ## Introductory notes
 - This tutorial utilizes a lot of symlinks. Make sure you read through the whole tutorial, because if you skip later on and don't understand where I get a directory from, it's probably because I used a symlink.
 
