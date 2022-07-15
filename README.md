@@ -113,7 +113,7 @@ Under construction!
 ## Step 6: Miscellaneous tips and info
 Section for anything extra that you should know that doesn't fit into anywhere else
 ### Laggy screen updating
-In my experience, whenever I make a change all 4 windows do not update, you have to mouse over them to make them update. Get into the habit of doing little circles with your mouse near the center to update all the screens every once and a while
+In my experience, whenever I change ANYTHING, all 4 windows do not update - only the screen the change was made on. Changes include boxing, selection, zooming, etc. You have to mouse over them to make them update. Get into the habit of doing little circles with your mouse near the center to update all the screens every once and a while
 ### Model browser
 Turn off "Use grouped mod sorting"
 # Errors
