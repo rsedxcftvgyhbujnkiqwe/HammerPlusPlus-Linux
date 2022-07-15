@@ -108,6 +108,12 @@ I was unable to get compilepal to work. Therefore, we will use the traditional t
 Compiling works just fine since hammer is being run in a proton environment. You can just compile maps the good old fashioned way with your F9 menu, and you can even use the custom build programs of your choosing (they can be set in the [config file](#hammerplusplus_gameconfigtxt) or by manually editing the run steps).
 ### Build steps
 Under construction!
+## Step 6: Miscellaneous tips and info
+Section for anything extra that you should know that doesn't fit into anywhere else
+### Laggy screen updating
+In my experience, whenever I make a change all 4 windows do not update, you have to mouse over them to make them update. Get into the habit of doing little circles with your mouse near the center to update all the screens every once and a while
+### Model browser
+Turn off "Use grouped mod sorting"
 # Errors
 I only ran into a few, and should people make issues with other bugs I may address them here if they are noteworthy.
 ### proton exited with: code: 53
@@ -117,11 +123,6 @@ You may need to run hammer.exe once to generate files for the first time, you ca
 ```
 proton-call -r hammer.exe
 ```
-## Step 6: Miscellaneous tips and info
-Section for anything extra that you should know that doesn't fit into anywhere else
-### Laggy screen updating
-In my experience, whenever I make a change all 4 windows do not update, you have to mouse over them to make them update. Get into the habit of doing little circles with your mouse near the center to update all the screens every once and a while
-### Model browser
-Turn off "Use grouped mod sorting"
+
 ### My error isn't listed!
 Submit an issue detailing your problem and how to reproduce the bug and I'll see if I haven't already come across it yet. However if you followed the steps properly, there should be no issues. If you are experiencing problems, try redoing steps or starting over before posting here.
