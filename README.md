@@ -117,5 +117,11 @@ You may need to run hammer.exe once to generate files for the first time, you ca
 ```
 proton-call -r hammer.exe
 ```
+## Step 6: Miscellaneous tips and info
+Section for anything extra that you should know that doesn't fit into anywhere else
+### Laggy screen updating
+In my experience, whenever I make a change all 4 windows do not update, you have to mouse over them to make them update. Get into the habit of doing little circles with your mouse near the center to update all the screens every once and a while
+### Model browser
+Turn off "Use grouped mod sorting"
 ### My error isn't listed!
 Submit an issue detailing your problem and how to reproduce the bug and I'll see if I haven't already come across it yet. However if you followed the steps properly, there should be no issues. If you are experiencing problems, try redoing steps or starting over before posting here.
