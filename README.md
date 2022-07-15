@@ -13,6 +13,8 @@ Table of contents:
 
 [Step 5: Compiling maps](#step-5-compiling-maps)
 
+[Step 5: Compiling maps](#step-6-miscellaneous-tips-and-info)
+
 [Errors](#Errors)
 
 
