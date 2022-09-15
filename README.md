@@ -122,7 +122,7 @@ I only ran into a few, and should people make issues with other bugs I may addre
 ### proton exited with: code: 53
 You likely do not have the [hammer windows files](#hammer) in.
 ### various missing hammer file errors
-If you missed it back in step 3, you may need to run hammer.exe once to generate files for the first time, you can simply run the following to do so. You can close out after it launches.
+If you missed it back in step 1, you may need to run hammer.exe once to generate files for the first time, you can simply run the following to do so. You can close out after it launches.
 ```
 proton-call -r hammer.exe
 ```
