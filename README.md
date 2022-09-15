@@ -114,9 +114,9 @@ Under construction!
 ## Step 6: Miscellaneous tips and info
 Section for anything extra that you should know that doesn't fit into anywhere else
 ### Laggy screen updating
-In my experience, whenever I change ANYTHING, all 4 windows do not update - only the screen the change was made on. Changes include boxing, selection, zooming, etc. You have to mouse over them to make them update. Get into the habit of doing little circles with your mouse near the center to update all the screens every once and a while
+In my experience when using an arch based distro, whenever I change ANYTHING, all 4 windows do not update - only the screen the change was made on. Changes include boxing, selection, zooming, etc. You have to mouse over them to make them update. Get into the habit of doing little circles with your mouse near the center to update all the screens every once and a while. I didn't have this problem on gentoo using just i3 and xorg, so it might have been specific to KDE. Regardless, keep your eye out for it. It might seem annoying at first but you'll get used to it.
 ### Model browser
-Turn off "Use grouped mod sorting"
+Try to turn off "Use grouped mod sorting" if it isn't loading. If it does load, no need to turn this off.
 # Errors
 I only ran into a few, and should people make issues with other bugs I may address them here if they are noteworthy.
 ### proton exited with: code: 53
