@@ -20,7 +20,7 @@ Table of contents:
 
 
 ### Caveats
-- This has only been tested on an arch based distro, because that's what I use. I don't know how well it works anywhere else.
+- This has been tested on Artix and Gentoo and it worked in both (worked better in gentoo actually). I don't know how well it works in Debian distros or anything else
 - This has only been tested on Team Fortress 2. I don't make maps for any other game and have not tested it there. I'm sure most of the steps still work but if not then please try to figure it out on your own, my only concern is TF2.
 - You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus [config files](#hammerplusplus_gameconfigtxt).
 - You will not be able to use compilepal and will have to go through the map compilation process manually. If you get compilepal working on linux, please let me know.
@@ -36,7 +36,7 @@ Naturally you will need [hammer++](https://ficool2.github.io/HammerPlusPlus-Webs
 ### proton-caller
 My weapon of choice for this exercise is [proton-caller](https://github.com/caverym/proton-caller) by caverym, a rust wrapper for proton that makes it easy to run exes. This will be our method of invoking proton to run hammer.
 
-Install proton-caller through whichever way you prefer (AUR for arch users).
+Install proton-caller through whichever way you prefer (AUR for arch users, binary for everyone else).
 You will need to create the ~/.config/proton.conf file in order for proton-caller to function properly. I used the example settings from the repo page. 
 
 **The most important thing in this step is that you note where your 'data' directory is. In my case, it's stored in /home/user/Documents/Proton/env/. You do not have to use this directory, but I'm going to be using this path for the rest of the tutorial so substitute yours instead if you use an alternate path.**
