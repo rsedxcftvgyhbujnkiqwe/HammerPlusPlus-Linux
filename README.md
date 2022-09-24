@@ -85,7 +85,7 @@ You can run a kill -9 <id> on all wine processes if they are being stubborn.
 #### Symlink your TF2 directory to home
 Run the following
 ```
-ln -s '/home/user/.share/local/Steam/steamapps/common/Team Fortress 2' '/home/user/TF2'
+ln -s '/home/user/.local/share/Steam/steamapps/common/Team Fortress 2' '/home/user/TF2'
 ```
 This will create a TF2 folder in your home directory, so when you enter the file picker you can simply go to /home/user/TF2 and access your files.
 ### FGDs 
