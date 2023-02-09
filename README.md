@@ -104,13 +104,11 @@ In this file you can also edit certain configs, such as DefaultSolidEntity (when
 ### hammerplusplus_settings.ini
 This ini file, also situated in bin/hammerplusplus, contains a few groups of settings that are locked in the Tools->Options menu. Therefore you can edit this file in order to change them. There are far too many settings for me to cover in this section, so I'd just recommend opening it up and skimming through it and seeing if any settings catch your eye.
 ## Step 5: Compiling maps
-I was unable to get compilepal to work. Therefore, we will use the traditional tools. If you intend to have hammer automatically do these steps, make sure you follow the order at the end of this section, or it will not work.
-  
 **The following steps all assume you are in the expert window of the run map menu. Access this by pressing F9 and clicking "Expert" at the botom. You can either edit the default or make a new one, I edit the default config for my example.**
 ### Compiling
 Compiling works just fine since hammer is being run in a proton environment. You can just compile maps the good old fashioned way with your F9 menu, and you can even use the custom build programs of your choosing (they can be set in the [config file](#hammerplusplus_gameconfigtxt) or by manually editing the run steps).
 
-However, compilepal actually works with **wine** (NOT proton) as of V28-RC. You can use this as a better method for packing. Somethings to keep in mind:
+However, compilepal actually works with **wine** (NOT proton) as of V28-RC1. You can use this as a better method for packing. Somethings to keep in mind:
 - Requires wine, proton doesn't work properly with it. You'll need to symlink the TF2 directory into your wine prefix in the same way to how the proton prefix is symlinked.
 - You will (probably) need to edit the gameConfiguration.json manually to fix the paths. Since it's running through wine, they should be windows paths (starting with C:\) and not linux paths.
 - The UI turns black when focused, only showing what you are hovering over. However technically all the buttons still work and there's nothing else wrong with the compiling itself, so if you can handle the UI issues it's the superior compiling method (considering it is one of the only options on linux for automated packing)
