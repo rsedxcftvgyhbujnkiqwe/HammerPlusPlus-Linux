@@ -23,7 +23,7 @@ Table of contents:
 - This has been tested on Artix and Gentoo and it worked in both (worked better in gentoo actually). I don't know how well it works in Debian distros or anything else
 - This has only been tested on Team Fortress 2. I don't make maps for any other game and have not tested it there. I'm sure most of the steps still work but if not then please try to figure it out on your own, my only concern is TF2.
 - You will be unable to access the Tools->Options menu to edit hammer configuration. All hammer configuration must be done through the hammerplusplus [config files](#hammerplusplus_gameconfigtxt).
-- You will not be able to use compilepal and will have to go through the map compilation process manually. If you get compilepal working on linux, please let me know.
+- Compilepal has a buggy UI on linux (must be running >V28-RC). I suspect this has to do with what windows version wine is using, but I haven't tested it.
 ## Introductory notes
 - This tutorial utilizes a lot of symlinks. Make sure you read through the whole tutorial, because if you skip later on and don't understand where I get a directory from, it's probably because I used a symlink.
 
