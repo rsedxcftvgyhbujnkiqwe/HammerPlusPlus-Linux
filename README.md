@@ -1,6 +1,8 @@
 # HammerPlusPlus-Linux
 Tutorial on getting [HammerPlusPlus](https://ficool2.github.io/HammerPlusPlus-Website/index.html) by ficool2 working on linux for Team Fortress 2.
 
+Check out my [hammer scripts](https://github.com/rsedxcftvgyhbujnkiqwe/linux-hammer-scripts) for some helpful tools with material creation.
+
 Table of contents:
 
 [Step 1: Requirements](#step-1-requirements)
