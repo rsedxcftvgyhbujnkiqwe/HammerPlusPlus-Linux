@@ -38,7 +38,7 @@ Note that you will potentially need to start regular hammer at least once for it
 ### Hammer++
 Naturally you will need [hammer++](https://ficool2.github.io/HammerPlusPlus-Website/download.html) installed. Download and installation are the same as windows, just put the files in your bin/ folder. 
 ### proton-caller
-My weapon of choice for this exercise is [proton-caller](https://github.com/caverym/proton-caller) by caverym, a rust wrapper for proton that makes it easy to run exes. This will be our method of invoking proton to run hammer.
+My weapon of choice for this exercise is [proton-caller](https://github.com/happymintyo/Proton-Caller) by ~~caverym~~ happymintyo(repo was changed?), a rust wrapper for proton that makes it easy to run exes. This will be our method of invoking proton to run hammer. Alternatively, you can proton in some other way, but keep in mind you will need to determine where the prefix is located.
 
 Install proton-caller through whichever way you prefer (AUR for arch users, binary for everyone else).
 You will need to create the ~/.config/proton.conf file in order for proton-caller to function properly. I used the example settings from the repo page. 
