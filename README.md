@@ -9,7 +9,6 @@ Check out my [hammer scripts](https://github.com/rsedxcftvgyhbujnkiqwe/linux-ham
 The main hurdles to jump over when running hammer are to make sure gameinfo.txt + other libraries are accessible via proton, and to have 
 
 ## Installation
-You will obviously need steam and proton. In my case I have proton 7.0.3 and experimental installed. This guide is not intended to handhold you through the process of installing proton, it is assumed that since you are using linux you at least know how to use a search engine to get it installed.
 ### Hammer
 To get hammer files on linux you will have to jump through some hoops. Essentially, when you install TF2 normally on linux, only the linux files are generated. No windows files or exes are generated, meaning the entirety of hammer will be missing. However, proton runs windows programs, so if you force TF2 to use proton through the compatability settings, it will generate the windows files. The problem is that if you then turn compatability off so you can actually play the game, steam will remove all the windows files it just generated. 
 
@@ -32,7 +31,7 @@ Naturally you will need [hammer++](https://ficool2.github.io/HammerPlusPlus-Webs
 In order to run hammer++ we will be using Steam as the runner.
 1. On Steam in the bottom left, `Add a Game > Add a Non-Steam Game...`
 2. Press `Browse` and navigate to the hammerplusplus.exe. You can find it at `/home/user/.local/share/Steam/steamapps/common/Team Fortress 2/bin/x64/hammerplusplus.exe`, you will have to navigate there manually.
-3. `Add Selected Programs` and then set the compatibility tools to use a working Proton version. A version that works for me is `Proton 8.0-5`
+3. `Add Selected Programs` and then set the compatibility tools to use a working Proton version. Any version that fully works is fine, for me it was [GE-Proton8-32](https://github.com/GloriousEggroll/proton-ge-custom/releases/tag/GE-Proton8-32) but any of the built in ones that work for you are a valid option. You can easily change which proton version you use and you won't have to redo symlinks.
 4. Run it from your library once. You will get an error about gameinfo.txt
 ### Proton Symlink setup
 In order for hammer to run properly, it will need access to your TF2 files. We will symlink the directory to the proton prefix so that it can find all the necessary files
