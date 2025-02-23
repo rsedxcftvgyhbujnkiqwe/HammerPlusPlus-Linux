@@ -23,6 +23,8 @@ To quickly solve this problem, you can perform the following steps:
 
 You may need to start regular Hammer at least once to have it generate some files, you can use regular wine for it.
 
+If TF2 hammer files ever update, you can follow these steps once again to regenerate the files necessary.
+
 ### Hammer++
 Naturally you will need [hammer++](https://ficool2.github.io/HammerPlusPlus-Website/download.html) installed. Download and installation are the same as windows, just put the files in your bin/ folder. 
 
