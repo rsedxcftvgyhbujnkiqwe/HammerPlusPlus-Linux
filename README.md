@@ -7,7 +7,7 @@ Check out my [hammer scripts](https://github.com/rsedxcftvgyhbujnkiqwe/linux-ham
 - It's buggy right now. Currently the working versions of proton (9+) cause the 2D windows to blank out if they're not being updated. You can still map like this, it's just annoying. 
 - This has only been tested on Team Fortress 2. I don't make maps for any other game and have not tested it there. I'm sure most of the steps still work but if not then please try to figure it out on your own, my only concern is TF2.
 ## Introductory notes
-The main hurdles to jump over when running hammer are to make sure gameinfo.txt + other libraries are accessible via proton, and to have 
+The main hurdles to jump over when running hammer are to make sure gameinfo.txt + other libraries are accessible via proton.
 
 ## Installation
 ### Hammer
@@ -32,16 +32,18 @@ Naturally you will need [hammer++](https://ficool2.github.io/HammerPlusPlus-Webs
 In order to run hammer++ we will be using Steam as the runner.
 1. On Steam in the bottom left, `Add a Game > Add a Non-Steam Game...`
 2. Press `Browse` and navigate to the hammerplusplus.exe. You can find it at `/home/user/.local/share/Steam/steamapps/common/Team Fortress 2/bin/x64/hammerplusplus.exe`, you will have to navigate there manually.
-3. `Add Selected Programs` and then set the compatibility tools to use a working Proton version. Any version that fully works is fine, for me it was 9.0-4.
-4. Run it from your library once. You will get an error about gameinfo.txt
+3. `Add Selected Programs` and then in `Properties`, set the compatibility tools to use `Proton 7.0` (7.0-6 as of writing this)
+4. Turn off `Enable the Steam Overlay while in-game` (optional)
+5. Set your launch options to `PROTON_USE_WINED3D=1 %command%`. This is required to fix visual glitches
+6. Run it from your library once. You will get an error about gameinfo.txt
 ### Proton Symlink setup
 In order for hammer to run properly, it will need access to your TF2 files. We will symlink the directory to the proton prefix so that it can find all the necessary files
 
 To figure out which folder you need to symlink, you can either use protontricks or find it manually. 
 
-With protontricks, you can run `protontricks -l` and note the number for the hammerplusplus.exe entry. In my case, it was `3801452119`. This will be your compatdata folder
+With **protontricks**, you can run `protontricks -l` and note the number for the hammerplusplus.exe entry. In my case, it was `3801452119`. This will be your compatdata folder
 
-To find it manually, navigate to `/home/user/.local/share/Steam/steamapps/compatdata/` and look for the folder with the modified date of the current date.
+To find it **manually**, navigate to `/home/user/.local/share/Steam/steamapps/compatdata/` and look for the folder with the modified date of the current date.
 
 Once you locate the directory, run the following to create the directoreis:
 ```
