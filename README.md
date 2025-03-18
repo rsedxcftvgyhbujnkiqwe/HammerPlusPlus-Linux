@@ -31,7 +31,7 @@ Naturally you will need [hammer++](https://ficool2.github.io/HammerPlusPlus-Webs
 In order to run hammer++ we will be using Steam as the runner.
 1. On Steam in the bottom left, `Add a Game > Add a Non-Steam Game...`
 2. Press `Browse` and navigate to the hammerplusplus.exe. You can find it at `/home/user/.local/share/Steam/steamapps/common/Team Fortress 2/bin/x64/hammerplusplus.exe`, you will have to navigate there manually.
-3. `Add Selected Programs` and then in `Properties`, set the compatibility tools to use `Proton 7.0` (7.0-6 as of writing this)
+3. `Add Selected Programs` and then in `Properties`, force the use of a compatibility tool and set it to use `Proton 7.0-*`. Higher protons versions do not work and have color problems.
 4. Turn off `Enable the Steam Overlay while in-game` (optional)
 5. Set your launch options to `PROTON_USE_WINED3D=1 %command%`. This is required to fix visual glitches
 6. Run it from your library once. You will get an error about gameinfo.txt
