@@ -4,7 +4,6 @@ Tutorial on getting [HammerPlusPlus](https://ficool2.github.io/HammerPlusPlus-We
 Check out my [hammer scripts](https://github.com/rsedxcftvgyhbujnkiqwe/linux-hammer-scripts) for some helpful tools with material creation.
 
 ### Caveats
-- It's buggy right now. Currently the working versions of proton (9+) cause the 2D windows to blank out if they're not being updated. You can still map like this, it's just annoying. 
 - This has only been tested on Team Fortress 2. I don't make maps for any other game and have not tested it there. I'm sure most of the steps still work but if not then please try to figure it out on your own, my only concern is TF2.
 ## Introductory notes
 The main hurdles to jump over when running hammer are to make sure gameinfo.txt + other libraries are accessible via proton.
