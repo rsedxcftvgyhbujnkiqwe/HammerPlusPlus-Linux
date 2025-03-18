@@ -70,3 +70,5 @@ If you'd like to use compilepal, I've had success running it with **wine** (NOT 
 Try to turn off "Use grouped mod sorting" if it isn't loading. If it does load, no need to turn this off.
 ### Various missing hammer file errors
 If you missed it at the start, you may need to run hammer.exe once to generate files for the first time, you can simply run the following to do so. You can close out after it launches.
+### Notes
+Wine >=10.3 may be able to launch hammerplusplus on it's own. If you prefer to use that, the steps are similar and require launching the h++ exe with your TF2 directory symlinked into the wine prefix.
